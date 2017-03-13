@@ -44,10 +44,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.find_groups_box = new System.Windows.Forms.TextBox();
             this.find_groups_button = new System.Windows.Forms.Button();
-            this.Pirat_button = new System.Windows.Forms.Button();
             this.addFriends_button = new System.Windows.Forms.Button();
             this.gropssercbaton = new System.Windows.Forms.Button();
             this.Laikbutton = new System.Windows.Forms.Button();
+            this.Pirat_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -161,7 +161,7 @@
             // 
             // find_groups_box
             // 
-            this.find_groups_box.Location = new System.Drawing.Point(709, 215);
+            this.find_groups_box.Location = new System.Drawing.Point(432, 153);
             this.find_groups_box.Name = "find_groups_box";
             this.find_groups_box.Size = new System.Drawing.Size(191, 20);
             this.find_groups_box.TabIndex = 9;
@@ -169,23 +169,14 @@
             // 
             // find_groups_button
             // 
-            this.find_groups_button.Location = new System.Drawing.Point(711, 241);
+            this.find_groups_button.BackColor = System.Drawing.Color.Crimson;
+            this.find_groups_button.Font = new System.Drawing.Font("Monotype Corsiva", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.find_groups_button.Location = new System.Drawing.Point(432, 188);
             this.find_groups_button.Name = "find_groups_button";
-            this.find_groups_button.Size = new System.Drawing.Size(184, 33);
+            this.find_groups_button.Size = new System.Drawing.Size(191, 80);
             this.find_groups_button.TabIndex = 10;
             this.find_groups_button.Text = "Найти соответствия";
-            this.find_groups_button.UseVisualStyleBackColor = true;
-            // 
-            // Pirat_button
-            // 
-            this.Pirat_button.BackColor = System.Drawing.Color.SandyBrown;
-            this.Pirat_button.Font = new System.Drawing.Font("News706 BT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pirat_button.Location = new System.Drawing.Point(711, 280);
-            this.Pirat_button.Name = "Pirat_button";
-            this.Pirat_button.Size = new System.Drawing.Size(184, 77);
-            this.Pirat_button.TabIndex = 11;
-            this.Pirat_button.Text = "TORRENT-TREKKER";
-            this.Pirat_button.UseVisualStyleBackColor = false;
+            this.find_groups_button.UseVisualStyleBackColor = false;
             // 
             // addFriends_button
             // 
@@ -201,7 +192,7 @@
             // 
             this.gropssercbaton.Location = new System.Drawing.Point(709, 153);
             this.gropssercbaton.Name = "gropssercbaton";
-            this.gropssercbaton.Size = new System.Drawing.Size(182, 33);
+            this.gropssercbaton.Size = new System.Drawing.Size(202, 56);
             this.gropssercbaton.TabIndex = 14;
             this.gropssercbaton.Text = "поиск груп";
             this.gropssercbaton.UseVisualStyleBackColor = true;
@@ -209,13 +200,24 @@
             // 
             // Laikbutton
             // 
-            this.Laikbutton.Location = new System.Drawing.Point(445, 215);
+            this.Laikbutton.Location = new System.Drawing.Point(193, 299);
             this.Laikbutton.Name = "Laikbutton";
             this.Laikbutton.Size = new System.Drawing.Size(139, 20);
             this.Laikbutton.TabIndex = 15;
             this.Laikbutton.Text = "Автолайк групп";
             this.Laikbutton.UseVisualStyleBackColor = true;
             this.Laikbutton.Click += new System.EventHandler(this.Laikbutton_Click);
+            // 
+            // Pirat_button
+            // 
+            this.Pirat_button.BackColor = System.Drawing.Color.SandyBrown;
+            this.Pirat_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Pirat_button.Location = new System.Drawing.Point(711, 280);
+            this.Pirat_button.Name = "Pirat_button";
+            this.Pirat_button.Size = new System.Drawing.Size(184, 77);
+            this.Pirat_button.TabIndex = 11;
+            this.Pirat_button.Text = "TORRENT-TREKKER";
+            this.Pirat_button.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -266,10 +268,10 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TextBox find_groups_box;
         private System.Windows.Forms.Button find_groups_button;
-        private System.Windows.Forms.Button Pirat_button;
         private System.Windows.Forms.Button addFriends_button;
         private System.Windows.Forms.Button gropssercbaton;
         private System.Windows.Forms.Button Laikbutton;
+        private System.Windows.Forms.Button Pirat_button;
     }
 }
 

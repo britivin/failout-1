@@ -18,6 +18,13 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
+        
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            webBrowser1.Navigate("https://oauth.vk.com/authorize?client_id=5889611&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.37");
+        }
+
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             string url = e.Url.ToString();
@@ -57,14 +64,10 @@ namespace WindowsFormsApplication1
                 }
                 webBrowser1.Visible = false;
 
+
+                find_groups_box.Text = access_token + " " + user_id;
             }
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            webBrowser1.Navigate("https://oauth.vk.com/authorize?client_id=5114880&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.37");
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -103,6 +106,16 @@ namespace WindowsFormsApplication1
         {
             AutoLike_form serc = new AutoLike_form();
             serc.ShowDialog();
+        }
+
+        private void find_groups_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

@@ -40,28 +40,74 @@ namespace WindowsFormsApplication1
 
                     foreach (XmlNode level3 in level2.SelectNodes("user"))
                     {
-                        string name = "";
+                        string[] name = new string[2];
 
                         foreach (XmlNode level4 in level3.SelectNodes("first_name"))
                         {
-                            name = level4.InnerText;
+                            name[0] = level4.InnerText;
                         }
                         foreach (XmlNode level4 in level3.SelectNodes("last_name"))
                         {
-                            name = name + " " + level4.InnerText;
+                            name[1] = name + " " + level4.InnerText;
                         }
                         foreach (XmlNode level4 in level3.SelectNodes("photo_100"))
                         {
                             pictureBox1.Load(level4.InnerText);
                         }
-
+                         ListViewItem item = new ListViewItem(name,imageList1.Images.Count-1);
                         imageList1.Images.Add(pictureBox1.Image);
-                        listView1.Items.Add(name,imageList1.Images.Count-1);
+                        listView1.Items.Add(item);
                         Application.DoEvents();
                         
                     }
                 }
             }
+
+            XmlDocument docGP = new XmlDocument();
+            string Groups = "https://api.vk.com/method/groups.get.xml?fields=photo_100&access_token=" + access_token + "&extended=1&v=5.62";
+            docGP.Load(Groups);
+
+            foreach (XmlNode level1 in docGP.SelectNodes("response"))
+            {
+                foreach (XmlNode level2 in level1.SelectNodes("items"))
+                {
+
+                    foreach (XmlNode level3 in level2.SelectNodes("group"))
+                    {
+                        string name = "";
+
+                        foreach (XmlNode level4 in level3.SelectNodes("name"))
+                        {
+                            name = level4.InnerText;
+                        }
+                        foreach (XmlNode level4 in level3.SelectNodes("photo_100"))
+                        {
+                            pictureBox2.Load(level4.InnerText);
+                            //name = name + " " + level4.InnerText;
+                        }
+                        foreach (XmlNode level4 in level3.SelectNodes("photo_100"))
+                        {
+                            
+                        }
+
+                        imageList2.Images.Add(pictureBox2.Image);
+                        listView2.Items.Add(name, imageList2.Images.Count - 1);
+                        Application.DoEvents();
+
+                    }
+                }
+            }
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

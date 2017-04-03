@@ -39,8 +39,12 @@ namespace WindowsFormsApplication1
                 access_token = url.Substring(index + 13, index2 - index - 13);
                 index = url.IndexOf("user_id=");
                 user_id = url.Substring(index + 8);
+
+
                 XmlDocument doc = new XmlDocument();
+
                 string request = "https://api.vk.com/method/users.get.xml?fields=photo_100&access_token=" + access_token + "&v=5.62";
+
                 doc.Load(request);
                 if (doc.InnerXml.Contains("error"))
                 {
@@ -128,6 +132,15 @@ namespace WindowsFormsApplication1
             blabla.user_id = user_id;
             blabla.ShowDialog();
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            post postGroups = new post();
+            
+            postGroups.user_id = user_id;
+            postGroups.access_token = access_token;
+            postGroups.ShowDialog();
         }
 
     }

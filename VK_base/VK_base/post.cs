@@ -24,41 +24,68 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             XmlDocument doc = new XmlDocument();
-            string request = "https://api.vk.com/method/wall.get.xml?owner_id=-121327074&filter=owner";
+            string request = "https://api.vk.com/method/wall.get.xml?owner_id=-147418714&filter=owner";
             doc.Load(request);
 
             listView1.Items.Clear();
 
             foreach (XmlNode level1 in doc.SelectNodes("response"))
             {
-                foreach (XmlNode level2 in level1.SelectNodes("items"))
+                    string name = "";
+
+                foreach (XmlNode level2 in level1.SelectNodes("post"))
                 {
+                   
 
-                    foreach (XmlNode level3 in level2.SelectNodes("group"))
+                    foreach (XmlNode level3 in level2.SelectNodes("text"))
                     {
-                        string name = "";
 
-                        foreach (XmlNode level4 in level3.SelectNodes("name"))
-                        {
-                            name = level4.InnerText;
-                        }
-                        foreach (XmlNode level4 in level3.SelectNodes("photo_100"))
-                        {
-                            pictureBox1.Load(level4.InnerText);
-                            
-                        }
-                        foreach (XmlNode level4 in level3.SelectNodes("photo_100"))
+                        name = level3.InnerText;
+
+                    }
+
+
+                    foreach (XmlNode level4 in level2.SelectNodes("attachment"))
                         {
 
+                            foreach (XmlNode level5 in level4.SelectNodes("photo"))
+                            {
+
+                                foreach (XmlNode level6 in level5.SelectNodes("src_big"))
+                                {
+
+                                    pictureBox1.Load(level6.InnerXml);
+
+
+                                }
+
+
+                            }
+
+
                         }
 
-                        imageList1.Images.Add(pictureBox1.Image);
-                        listView1.Items.Add(name, imageList1.Images.Count - 1);
-                        Application.DoEvents();
 
+                        
+                            imageList1.Images.Add(pictureBox1.Image);                        
+
+                            listView1.Items.Add(name, imageList1.Images.Count - 1);
+
+                            Application.DoEvents();                            
+                        
                     }
                 }
             }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
-    }
-}
+
+        private void post_Load(object sender, EventArgs e)
+        {
+
+        }
+         }
+      }
+

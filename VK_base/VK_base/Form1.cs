@@ -116,7 +116,11 @@ namespace WindowsFormsApplication1
 
         private void find_groups_button_Click(object sender, EventArgs e)
         {
+            Sravnenie SravGroups = new Sravnenie();
 
+            SravGroups.user_id = user_id;
+            SravGroups.access_token = access_token;
+            SravGroups.ShowDialog();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

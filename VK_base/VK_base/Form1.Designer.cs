@@ -138,7 +138,7 @@
             // find_groups_button
             // 
             this.find_groups_button.BackColor = System.Drawing.Color.Crimson;
-            this.find_groups_button.Font = new System.Drawing.Font("Monotype Corsiva", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.find_groups_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.find_groups_button.Location = new System.Drawing.Point(169, 54);
             this.find_groups_button.Name = "find_groups_button";
             this.find_groups_button.Size = new System.Drawing.Size(191, 80);
@@ -158,9 +158,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(748, 82);
+            this.button1.Location = new System.Drawing.Point(169, 216);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 113);
+            this.button1.Size = new System.Drawing.Size(191, 67);
             this.button1.TabIndex = 17;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -168,9 +168,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(439, 69);
+            this.button2.Location = new System.Drawing.Point(169, 150);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(191, 45);
             this.button2.TabIndex = 18;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;

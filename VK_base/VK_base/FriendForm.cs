@@ -14,6 +14,8 @@ namespace WindowsFormsApplication1
     {
         public string access_token;
         public string user_id;
+        public string group_id;
+        string[] nameG = new string[3];
 
         public FriendForm()
         {
@@ -33,71 +35,85 @@ namespace WindowsFormsApplication1
 
             listView1.Items.Clear();
 
-            foreach(XmlNode level1 in doc.SelectNodes("response"))
+            foreach (XmlNode level1 in doc.SelectNodes("response"))
             {
                 foreach (XmlNode level2 in level1.SelectNodes("items"))
                 {
 
                     foreach (XmlNode level3 in level2.SelectNodes("user"))
                     {
-                        string[] name = new string[2];
-
+                        
                         foreach (XmlNode level4 in level3.SelectNodes("first_name"))
                         {
-                            name[0] = level4.InnerText;
+                            nameG[0] = level4.InnerText;
                         }
                         foreach (XmlNode level4 in level3.SelectNodes("last_name"))
                         {
-                            name[1] = name + " " + level4.InnerText;
+                            nameG[1] = nameG + " " + level4.InnerText;
                         }
                         foreach (XmlNode level4 in level3.SelectNodes("photo_100"))
                         {
                             pictureBox1.Load(level4.InnerText);
+
                         }
-                         ListViewItem item = new ListViewItem(name,imageList1.Images.Count-1);
-                        imageList1.Images.Add(pictureBox1.Image);
-                        listView1.Items.Add(item);
-                        Application.DoEvents();
-                        
+
+                            foreach (XmlNode Level5 in level3.SelectNodes("id"))
+
+                            {
+                                nameG[2] = Level5.InnerText;
+                            }
+
+                            ListViewItem item = new ListViewItem(nameG, imageList1.Images.Count - 1);
+                            imageList1.Images.Add(pictureBox1.Image);
+                            listView1.Items.Add(item);
+                            Application.DoEvents();
+
+                        }
                     }
                 }
-            }
+            
+        
 
-            XmlDocument docGP = new XmlDocument();
-            string Groups = "https://api.vk.com/method/groups.get.xml?fields=photo_100&access_token=" + access_token + "&extended=1&v=5.62";
-            docGP.Load(Groups);
+                XmlDocument docGP = new XmlDocument();
+                string Groups = "https://api.vk.com/method/groups.get.xml?fields=photo_100&access_token=" + access_token + "&extended=1&v=5.62";
+                docGP.Load(Groups);
 
-            foreach (XmlNode level1 in docGP.SelectNodes("response"))
-            {
-                foreach (XmlNode level2 in level1.SelectNodes("items"))
+                foreach (XmlNode level1 in docGP.SelectNodes("response"))
                 {
-
-                    foreach (XmlNode level3 in level2.SelectNodes("group"))
+                    foreach (XmlNode level2 in level1.SelectNodes("items"))
                     {
-                        string name = "";
 
-                        foreach (XmlNode level4 in level3.SelectNodes("name"))
+                        foreach (XmlNode level3 in level2.SelectNodes("group"))
                         {
-                            name = level4.InnerText;
-                        }
-                        foreach (XmlNode level4 in level3.SelectNodes("photo_100"))
-                        {
-                            pictureBox2.Load(level4.InnerText);
-                            //name = name + " " + level4.InnerText;
-                        }
-                        foreach (XmlNode level4 in level3.SelectNodes("photo_100"))
-                        {
-                            
-                        }
+                            string name = "";
 
-                        imageList2.Images.Add(pictureBox2.Image);
-                        listView2.Items.Add(name, imageList2.Images.Count - 1);
-                        Application.DoEvents();
+                            foreach (XmlNode level4 in level3.SelectNodes("name"))
+                            {
+                                name = level4.InnerText;
+                            }
+                            foreach (XmlNode level4 in level3.SelectNodes("photo_100"))
+                            {
+                                pictureBox2.Load(level4.InnerText);
+                                //name = name + " " + level4.InnerText;
+                            }
+                            foreach (XmlNode level4 in level3.SelectNodes("photo_100"))
+                            {
 
+                            }
+                            foreach (XmlNode Level5 in level3.SelectNodes("id"))
+                            {
+                                nameG[2] = Level5.InnerText;
+                            }
+
+                            imageList2.Images.Add(pictureBox2.Image);
+                            listView2.Items.Add(name, imageList2.Images.Count - 1);
+                            Application.DoEvents();
+
+                        }
                     }
                 }
-            }
 
+            
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -108,6 +124,17 @@ namespace WindowsFormsApplication1
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView2.SelectedItems.Count > 0)
+            {
+                label1.Text = null;      
+                label1.Text = listView2.SelectedItems[0].SubItems[0].Text;
+                label1.Text = nameG[2]; 
+                
+            } 
         }
     }
 }

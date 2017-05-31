@@ -30,19 +30,27 @@
         {
             this.components = new System.ComponentModel.Container();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // listView1
             // 
+            this.listView1.LargeImageList = this.imageList1;
             this.listView1.Location = new System.Drawing.Point(137, 24);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(344, 236);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(50, 50);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // button1
             // 
@@ -56,18 +64,12 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(605, 219);
+            this.pictureBox1.Location = new System.Drawing.Point(580, 201);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(141, 148);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // post
             // 
@@ -79,6 +81,7 @@
             this.Controls.Add(this.listView1);
             this.Name = "post";
             this.Text = "post";
+            this.Load += new System.EventHandler(this.post_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -88,7 +91,7 @@
 
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
